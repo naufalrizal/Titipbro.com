@@ -31,18 +31,12 @@ $title = 'Login';
 require('layout/header.php'); 
 ?>
 
-	
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <div class="container">
+    <div class="omb_login">
 
-	<div class="row">
-
-	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-			<form role="form" method="post" action="" autocomplete="off">
-				<h2>Please Login</h2>
-				<p><a href='./'>Back to home page</a></p>
-				<hr>
-
-				<?php
+    	<?php
 				//check for any errors
 				if(isset($error)){
 					foreach($error as $error){
@@ -68,45 +62,89 @@ require('layout/header.php');
 				}
 
 				
-				?>
+		?>
 
-				<div class="form-group">
-					<input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
-				</div>
+		<hr>
+        <div class="row omb_row-sm-offset-3">
 
-				<div class="form-group">
-					<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="3">
-				</div>
-				
-				<div class="row">
-					<div class="col-xs-9 col-sm-9 col-md-9">
-						 <a href='reset.php'>Forgot your Password?</a>
-					</div>
-				</div>
-				
-				<hr>
-				<div class="row">
-					<div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Login" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
-				</div>
+            <div class="col-xs-12 col-sm-6"> <!-- <div class="col-md-6 col-md-offset-3"> -->
+                <div style="padding: 20px;" id="form-forgot">
+                    <form class="omb_loginForm" action="" autocomplete="off" method="POST">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" name="username" placeholder="Username"
+                            value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
+                        </div>
+                        <span class="help-block"></span>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input  type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <span class="help-block"></span>
+                        <div class="row">
+							<div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Login" class="btn btn-lg btn-primary btn-block" tabindex="5"></div>
+						</div>
+                    </form>
+                </div>
+            </div>
+            <div class="row omb_row-sm-offset-3">
+                <div class="col-xs-12 col-sm-3">
+                    <label class="checkbox" style="margin-left:2em;">
+                        <input type="checkbox" value="remember-me">Remember Me
+                    </label>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <p class="help-block omb_forgotPwd">
+                        <a class="pull-right text-muted" href="#" id="forgot">Forgot your password?</a>
+                    </p>
+                </div>
+            </div>	    	
+        
+            <div class="row omb_row-sm-offset-3 omb_loginOr">
+                <div class="col-xs-12 col-sm-6">
+                    <hr class="omb_hrOr">
+                    <span class="omb_spanOr">or login using</span>
+                </div>
+            </div>
+            <div class="row omb_row-sm-offset-3 omb_socialButtons">
+                <div class="col-xs-4 col-sm-3">
+                    <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+                        <i class="fa fa-facebook visible-xs"></i>
+                        <span class="hidden-xs">Facebook</span>
+                    </a>
+                </div>
 
-				<hr>
+                <div class="col-xs-4 col-sm-3">
+                    <a href="#" class="btn btn-lg btn-block omb_btn-google">
+                        <i class="fa fa-google-plus visible-xs"></i>
+                        <span class="hidden-xs">Google+</span>
+                    </a>
+                </div>	
+            </div>
+            <div style="display: none;" id="form-forgot">
+                <h4 class="">
+                    Forgot your password?
+                </h4>
+                
+            </div>
 
-				<div class="row">
+            <br>
+
+            <div class="row">
 					<div class="col-xs-9 col-sm-9 col-md-9">
 						 Belum jadi member sist? <a href='register.php'>Daftar Yuk !</a>
+						<p><a href='./'>Back to home page</a></p>
 					</div>
-				</div>
+			</div>
 
-			</form>
-		</div>
-	</div>
-
-
-
+        </div>
+    </div>
 </div>
 
-
-<?php 
-//include header template
+<br>
+<br>     
+<?php
+//include footer template
 require('layout/footer.php'); 
 ?>
