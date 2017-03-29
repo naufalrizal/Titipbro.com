@@ -8,7 +8,7 @@ if( $user->is_logged_in() ){ header('Location: memberpage.php'); }
 //process login form if submitted
 if(isset($_POST['submit'])){
 
-	$username = $_POST['username'];
+	$usrname = $_POST['usrname'];
 	$password = $_POST['password'];
 	
 	if($user->login($username,$password)){ 
